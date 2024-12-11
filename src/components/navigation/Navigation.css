@@ -1,0 +1,21 @@
+nav ul {
+    list-style-type: none; /* Remove bullet points */
+    margin: 0;
+    padding: 0;
+    display: flex; /* Arrange list items in a row */
+    gap: 1rem; /* Optional: Adds spacing between items */
+}
+nav a{
+    text-decoration: none;
+    color: #000;
+}
+nav a:hover, nav button:hover {
+    color: #38E991; /* Optional: Change color on hover */
+    text-decoration: underline; /* Optional: Underline on hover */
+}
+.default-link{
+    border-bottom: 1px solid transparent;
+}
+.active-link{
+    border-bottom: 1px solid #38E991;;
+}
