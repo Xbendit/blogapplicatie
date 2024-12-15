@@ -1,23 +1,29 @@
 import './BlogPost.css'
-import {useParams} from "react-router-dom";
-import {useState} from "react";
+import {Link, useParams} from "react-router-dom";
+import posts from '../../constants/data.json'
+import ConvertDate from "../../assets/helpers/ConvertDate.jsx";
 
-function BlogPost () {
-    /*const [postInfo, setPostInfo]   = useState({})*/
+function BlogPost() {
+
     const {postID} = useParams();
-    console.log(postID)
 
-/*function fetchPost(){
-    setPostInfo(data)
-}*/
 
     return (
         <>
-        <h3>Dit is een Blogpost {postID}</h3>
-       {/* <button type="button" onClick={fetchPost}>
-            Haal info op!
-        </button>*/}
+
+            <h2>{posts[postID].title} ({posts[postID].readTime} minuten)</h2>
+
+            <h3> {posts[postID].subtitle} </h3>
+
+            <p> Geschreven door {posts[postID].author} op {ConvertDate(posts[postID].created)}</p>
+            <br/>
+            <p>{posts[postID].content}</p>
+            <br/>
+            <p> {posts[postID].comments} reacties - {posts[postID].shares} gedeeld</p>
+            <br/>
+            <p><Link to="/"> Terug naar het overzicht </Link></p>
         </>
-    )
+    );
 }
+
 export default BlogPost
